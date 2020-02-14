@@ -1,0 +1,19 @@
+{
+  "name": "projeto_million",
+  "version": "0.0.1",
+  "description": "primeira versão do projeto",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EvertonAvelino/projeto_million.git"
+  },
+  "author": "Everton Vitor",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EvertonAvelino/projeto_million/issues"
+  },
+  "homepage": "https://github.com/EvertonAvelino/projeto_million#readme"
+}
