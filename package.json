@@ -1,8 +1,12 @@
 {
-  "name": "projeto_million",
+  "name": "adm_projeto_million",
   "version": "0.0.1",
-  "description": "primeira versão do projeto",
+  "description": "",
   "main": "index.js",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,7 +14,7 @@
     "type": "git",
     "url": "git+https://github.com/EvertonAvelino/projeto_million.git"
   },
-  "author": "Everton Vitor",
+  "author": "\"Everton Vitor\"",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/EvertonAvelino/projeto_million/issues"
