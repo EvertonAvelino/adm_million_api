@@ -3,10 +3,6 @@
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
-  "dependencies": {
-    "express": "^4.17.1"
-  },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -14,10 +10,18 @@
     "type": "git",
     "url": "git+https://github.com/EvertonAvelino/projeto_million.git"
   },
-  "author": "\"Everton Vitor\"",
+  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/EvertonAvelino/projeto_million/issues"
   },
-  "homepage": "https://github.com/EvertonAvelino/projeto_million#readme"
+  "homepage": "https://github.com/EvertonAvelino/projeto_million#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "express-ejs-layouts": "^2.5.0",
+    "faker": "^4.1.0",
+    "nodemon": "^2.0.2"
+  }
 }
