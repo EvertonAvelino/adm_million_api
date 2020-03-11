@@ -1,19 +1,8 @@
-const Adm = {
-    id:1,
-    nome: "Everton",
-    senha: "123456",
-   // todos é uma função 
-    todos:()=>[
-        {
-            id:1,
-            nome: "Everton",
-            senha: "123456",
-        },
-        {
-            id:2,
-            nome: "Everton2",
-            senha: "123456",
-        },
-    ]
-}
+var mongoose = require("../../db/conexao");
+const Adm = mongoose.model('user',{
+    nome: { type:String, required:true},
+    email: { type:String, required:true, unique:true},
+    senha: { type:String, required: true},
+    
+});
 module.exports = Adm;
