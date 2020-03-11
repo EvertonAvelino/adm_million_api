@@ -6,7 +6,6 @@ const AdmController = {
        }
  */
    // outra forma de fazer a função javascript
- 
         index:(req, res, next) => {
           res.send(Adm.todos());
        }

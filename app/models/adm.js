@@ -2,7 +2,7 @@ const Adm = {
     id:1,
     nome: "Everton",
     senha: "123456",
-    
+   // todos é uma função 
     todos:()=>[
         {
             id:1,
