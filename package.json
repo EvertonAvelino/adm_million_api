@@ -18,6 +18,7 @@
     "request-promise": "^4.2.5"
   },
   "devDependencies": {
+    "request": "*",
     "jasmine": "^3.5.0"
   }
 }

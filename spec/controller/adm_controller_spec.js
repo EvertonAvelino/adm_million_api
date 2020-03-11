@@ -18,7 +18,7 @@ describe("AdmController", () => {
       done();
     });
 
-    it("deve dados na API", (done) => {
+    it("deve  retornar dados na API", (done) => {
       let options = {
         method: 'GET',
         uri: `${host}/adm.json`,
