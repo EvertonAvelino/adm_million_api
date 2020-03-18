@@ -1,25 +1,25 @@
 
-===================================|
-iniciar mongo db                   |
-                                   |
-sudo systemctl start mongod        |
-=> sudo service mongod start       |        
-===================================|
-verificar se iniciou               |
-                                   |
-sudo systemctl status mongod       |
-=> sudo service mongod status      |
-===================================|
-parar mongodb                      |
-                                   |
-sudo systemctl stop mongod         |
-=> sudo service mongod stop        |
-===================================|
-restart mongodb                    |
-                                   |
-sudo systemctl stop mongod         |
-=> sudo service mongod restart     |
-===================================|
+|===================================|
+|iniciar mongo db                   |
+|                                   |
+|sudo systemctl start mongod        |
+|=> sudo service mongod start       |        
+|===================================|
+|verificar se iniciou               |
+|                                   |
+|sudo systemctl status mongod       |
+|=> sudo service mongod status      |
+|===================================|
+|parar mongodb                      |
+|                                   |
+|sudo systemctl stop mongod         |
+|=> sudo service mongod stop        |
+|===================================|
+|restart mongodb                    |
+|                                   |
+|sudo systemctl stop mongod         |
+|=> sudo service mongod restart     |
+|===================================|
 
 
 
