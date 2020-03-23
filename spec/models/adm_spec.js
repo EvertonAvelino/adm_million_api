@@ -1,11 +1,21 @@
-var Adm = require('../../app/models/adm');
+const Adm = require('../../app/models/adm');
 
 describe('Modelo Adm', () => {
   it('Deve retornar o modelo de Adm', () => {
-    let adm = Adm;
-    expect(adm !== undefined).toBe(true);
-    expect(adm.id !== undefined).toBe(true);
-    expect(adm.nome !== undefined).toBe(true);
-    expect(adm.todos() !== undefined).toBe(true);
+       
+    Adm.find().then(dado => {
+      expect(dado !== undefined).toBe(true);
+    });
   });
+ 
+    it('Deve incluir um admnistrador', () => {
+      let nome = "teste" + new Date().getTime();
+      const adm= new Adm({nome: nome, senha:'654321', email: nome + '@everton.com.br'});
+      adm.save(error =>{
+        expect(error == undefined || error == null).toBe(true);
+      });
+    });
 });
+
+//nova forma de concatenar do javascript
+// let nome = 'teste $new Date().getTime();}';

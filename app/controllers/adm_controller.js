@@ -2,10 +2,18 @@ var Adm = require("../models/adm");
 
 const AdmController = {
 
-        index:(req, res, next) => {
+    index:(req, res, next) => {
 
-          Adm.find().then(dado  =>res.send(dado));
-/*          
+      Adm.find().then(dado =>res.send(dado));
+
+    }        
+ }
+ module.exports = AdmController; 
+
+
+
+
+ /*          
           const adm= new Adm({nome:'Suporte', senha:'654321', email:'suporte@everton.com.br'});
           adm.save(error =>{
             if(error){
@@ -17,9 +25,6 @@ const AdmController = {
             });
           });
  */         
-        }        
- }
- module.exports = AdmController; 
 
    /*
     index: function(req, res, next) {
