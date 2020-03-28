@@ -1,38 +1,67 @@
-var request = require('request-promise');
+const axios = require('axios').default;
 const host = "http://localhost:3000";
+const Adm = require('../../app/models/adm');
+const TOKEN = "12345213455";
 
 describe("AdmController", () => {
+  beforeEach(async()=>{
+    await Adm.deleteMany()
+    await Adm.create([{ nome: "Danilo1", senha: '123456', email: 'danilo1@torneseumprogramador.com.br' },{ nome: "Danilo2", senha: '123456', email: 'danilo2@torneseumprogramador.com.br' }])
+  })
+
   describe("GET /adm.json - deve retornar uma lista de administradores", () => {
-    it("deve retornar o status code de 200", (done) => {
-      let options = {
-        method: 'GET',
-        uri: `${host}/adm.json`,
-        resolveWithFullResponse: true
-      };
-      request(options).then(response => {
-        expect(response.statusCode).toBe(200);
-      })
-      .catch(function (err) {
-        throw err.message
-      });
+    it("deve retornar o status code de 200", async(done) => {
+      const response = await axios.get(`${host}/adm.json`, {headers: {'token':TOKEN}})
+      expect(response.status).toBe(200)
       done();
     });
 
-    it("deve  retornar dados na API", (done) => {
-      let options = {
-        method: 'GET',
-        uri: `${host}/adm.json`,
-        resolveWithFullResponse: true
-      };
-      request(options).then(response => {
-        itens = JSON.parse(response.body);
-        expect(itens[0].id).toBe(1);
-        expect(itens[1].id).toBe(2);
+    it("deve dados na API", async(done) => {
+       const response = await axios.get(`${host}/adm.json`, {headers: {'token':TOKEN}})
+        const itens = response.data;
+        expect(itens[0].nome).toBe("Danilo1");
+        expect(itens[1].nome).toBe("Danilo2");
+        done()
       })
-      .catch(function (err) {
-        throw err.message
-      });
+  });
+// 
+
+  describe("POST /adm.json - administrador", () => {
+    it("deve cadastrar um administrador", async(done) => {
+      let nome = `teste ${new Date().getTime()}`;
+        const body = { 
+          nome,
+          senha: '123456',
+          email: nome + '@torneseumprogramador.com.br' 
+        }
+        const response = await axios.post(`${host}/adm.json`, body, {headers: {'token':TOKEN}})
+        expect(response.status).toBe(201)
       done();
     });
   });
-});
+// 
+  describe("PUT /adm.json - administrador", () => {
+    it("deve alterar um administrador", async(done) => {
+      let nome = `teste ${new Date().getTime()}`;
+     const adm = await Adm.create({ nome: nome, senha: '123456', email: nome + '@torneseumprogramador.com.br' }) 
+        const body = { 
+            nome,
+            senha: '123456',
+            email: nome + '@torneseumprogramador.com.br' 
+          }
+        const response = await axios.put(`${host}/adm/${adm._id}.json`, body, {headers: {'token':TOKEN}})
+        expect(response.status).toBe(204);
+        done();
+      });
+    });
+
+  describe("DELETE /adm.json - administrador", () => {
+    it("deve apagar um administrador", async(done) => {
+      let nome = `teste ${new Date().getTime()}`;
+      const adm = await Adm.create({ nome: nome, senha: '123456', email: nome + '@torneseumprogramador.com.br' })        // let options = {
+        const response = await axios.delete(`${host}/adm/${adm._id}.json`, {headers: {'token':TOKEN}})
+        expect(response.status).toBe(204)
+        done();
+    });
+  });
+})
