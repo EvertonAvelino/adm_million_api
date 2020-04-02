@@ -1,5 +1,5 @@
 const Adm = require('../models/adm');
-const TOKEN = "12345213455";
+const TOKEN = "147852";
 
 const AdmController = {
   index: (req, res, next) => {
@@ -11,7 +11,9 @@ const AdmController = {
       res.status(401).send({error: "Acesso negado a API, Token invalido"});
     }
   },
+  //cadastrar usuario
   create: (req, res, next) => {
+    
   if(req.headers.token == TOKEN){
     const adm = new Adm({ nome: req.body.nome, senha: req.body.senha, email: req.body.email });
     adm.save(error => {
@@ -27,6 +29,7 @@ const AdmController = {
     res.status.send({error: `Acesso negado a API`})
   }
   },
+  //atualizar usuario
   change: async(req, res, next) => {
   if(req.headers.token == TOKEN){
     try{
@@ -41,6 +44,7 @@ const AdmController = {
     res.status(401).send({error:`Acesso negado a API`})
   }
   }
+  //deletar usuario
   ,
   delete: async(req, res, next) => {
   if(req.headers.token == TOKEN){

@@ -1,7 +1,7 @@
 const axios = require('axios').default;
 const host = "http://localhost:3000";
 const Adm = require('../../app/models/adm');
-const TOKEN = "12345213455";
+const TOKEN = "147852";
 
 describe("AdmController", () => {
   beforeEach(async()=>{
@@ -39,6 +39,7 @@ describe("AdmController", () => {
       done();
     });
   });
+  
 // 
   describe("PUT /adm.json - administrador", () => {
     it("deve alterar um administrador", async(done) => {
